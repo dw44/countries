@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 import { ThemeProvider } from '../context/ThemeContext';
+import Layout from '../components/layout';
 
 export default function Home() {
   const [countries, setCountries] = useState([]);
@@ -27,13 +28,15 @@ export default function Home() {
 
   return (
     <ThemeProvider>
-      <div className="App">
-        <Head>
-          <title>Countries</title>
-          <meta name="description" content="Statistics for the world's countries" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-      </div>
+      <Layout>
+        <div className="App">
+          <Head>
+            <title>Countries</title>
+            <meta name="description" content="Statistics for the world's countries" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+        </div>
+      </Layout>
     </ThemeProvider>
   );
 }
