@@ -1,10 +1,30 @@
+import axios from 'axios';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useContext } from 'react';
+import { useState, useEffect } from 'react';
 
 import { ThemeProvider } from '../context/ThemeContext';
 
 export default function Home() {
+  const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get('https://restcountries.eu/rest/v2/all');
+        if (response.data) {
+          setCountries([...response.data]);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
+      }    
+    }
+
+    fetchCountries();
+  }, []);
+
   return (
     <ThemeProvider>
       <div className="App">
