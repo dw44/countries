@@ -11,13 +11,15 @@ export default function Header() {
   const { dark, toggleTheme } = useContext(ThemeContext);
   return (
     <header css={{
-      padding: '0 4em',
-      boxShadow: '0 2px 2px 1px #ccc',
-      height: '4em',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      fontFamily: "'Raleway', sans-serif",
+      'padding': '0 4em',
+      'boxShadow': '0 2px 2px 1px #ccc',
+      'height': '4em',
+      'display': 'flex',
+      'alignItems': 'center',
+      'justifyContent': 'space-between',
+      'fontFamily': "'Raleway', sans-serif",
+      'backgroundColor': dark ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
+      'color': dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)', 
     }}>
       <h1 css={{
         fontWeight: 700,
@@ -29,14 +31,20 @@ export default function Header() {
       type="button"
       onClick={ toggleTheme }
       css={{
-        'width': '10em',
+        'width': '9em',
+        'border': 'none',
         'display': 'flex',
         'alignItems': 'center',
         'justifyContent': 'space-evenly',
-        'cursor': 'pointer'
+        'backgroundColor': 'transparent',
+        'cursor': 'pointer',
+        'fontFamily': "'Raleway', sans-serif",
+        'fontWeight': '600',
+        'fontsize': '1.1em',
+        'color': dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)', 
       }}>
-        <FontAwesomeIcon css={{height: '1.8em', color: '#f0f'}} icon={dark ? faSun : faMoon} />
-        {dark ? 'Day Mode' : 'Dark Mode'}
+        <FontAwesomeIcon css={{height: '1.5em'}} icon={dark ? faSun : faMoon} />
+        {dark ? <span>Day Mode</span> : <span>Dark Mode</span>}
       </button>
     </header>
   );
