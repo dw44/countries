@@ -1,10 +1,10 @@
 import axios from 'axios';
 import Head from 'next/head';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 import { ThemeProvider } from '../context/ThemeContext';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
+import CountryCard from '../components/CountryCard';
 
 export default function Home() {
   const [countries, setCountries] = useState([]);
@@ -35,6 +35,27 @@ export default function Home() {
             <meta name="description" content="Statistics for the world's countries" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
+          <CountryCard
+            flag="https://restcountries.eu/data/irq.svg"
+            name="Germany"
+            population="82,500,725"
+            region="Europe"
+            capital="Berlin"
+          />
+                    <CountryCard
+            flag="https://restcountries.eu/data/irn.svg"
+            name="Germany"
+            population="82,500,725"
+            region="Europe"
+            capital="Berlin"
+          />
+                    <CountryCard
+            flag="https://restcountries.eu/data/pak.svg"
+            name="Germany"
+            population="82,500,725"
+            region="Europe"
+            capital="Berlin"
+          />
         </div>
       </Layout>
     </ThemeProvider>

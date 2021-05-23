@@ -1,7 +1,8 @@
 import { createContext, useReducer } from 'react';
 
+// TODO: Save to localStorage
 const startingTheme = {
-  dark: false
+  dark: false,
 }
 
 const reducer = (state, action) => {
