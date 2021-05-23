@@ -2,12 +2,17 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from '@emotion/react';
+import { useContext } from 'react';
 
+import { numberWithCommas } from '../utils/utils';
+import { ThemeContext } from '../context/ThemeContext';
 
 export default function CountryCard({
   flag, name, population, region, capital
 }) {
-  
+
+  const { dark } = useContext(ThemeContext);
+
   const countryDataStyles = css`
     font-size: 14px;
     span {
@@ -26,7 +31,10 @@ export default function CountryCard({
         'width': '270px',
         'height': '360px',
         'boxShadow': 'rgba(0, 0, 0, 0.1) 0px 4px 12px',
+        'backgroundColor': dark ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
+        'color': dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
         'fontFamily': "'Nunito Sans', sans-serif",
+        'borderRadius': '6px 6px 6px 6px'
     }}>
       <div css={{
         width: '100%',
@@ -40,24 +48,24 @@ export default function CountryCard({
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            borderRadius: '3% 3% 0 0'
+            borderRadius: '6px 6px 0 0'
           }}
         />
       </div>
       <div css={{
         height: '55%',
         borderRadius: '0 0 3% 3%',
-        border: '1px solid #f30f22',
         borderTop: 'none',
         padding: '10%'
       }}>
         <em css={{
           display: 'block',
-          fontWeight: '700',
-          fontSize: '1em'
+          fontWeight: '800',
+          fontSize: '20px',
+          marginBottom: '30px'
         }}>{name}</em>
         <div css={countryDataStyles}>
-          <span><b>Population:</b>{` ${name}`}</span>
+          <span><b>Population:</b>{` ${numberWithCommas(population)}`}</span>
           <span><b>Region:</b>{` ${region}`}</span>
           <span><b>Capital:</b>{` ${capital}`}</span>
         </div>

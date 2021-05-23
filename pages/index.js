@@ -36,25 +36,18 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <CountryCard
-            flag="https://restcountries.eu/data/irq.svg"
+            flag="https://restcountries.eu/data/deu.svg"
             name="Germany"
-            population="82,500,725"
+            population={82500725}
             region="Europe"
             capital="Berlin"
           />
-                    <CountryCard
-            flag="https://restcountries.eu/data/irn.svg"
-            name="Germany"
-            population="82,500,725"
-            region="Europe"
-            capital="Berlin"
-          />
-                    <CountryCard
+          <CountryCard
             flag="https://restcountries.eu/data/pak.svg"
-            name="Germany"
-            population="82,500,725"
-            region="Europe"
-            capital="Berlin"
+            name="Pakistan"
+            population={221890644}
+            region="Asia"
+            capital="Islamabad"
           />
         </div>
       </Layout>

@@ -7,7 +7,6 @@ import { ThemeContext } from '../context/ThemeContext';
 import Header from './Header';
 
 export default function Layout({ children }) {
-  const { dark } = useContext(ThemeContext)
   return (
     <div css={{
       margin: '0 auto',
