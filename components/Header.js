@@ -38,7 +38,7 @@ export default function Header() {
         'justifyContent': 'space-evenly',
         'backgroundColor': 'transparent',
         'cursor': 'pointer',
-        'fontFamily': "'Raleway', sans-serif",
+        'fontFamily': "'Nunito Sans', sans-serif",
         'fontWeight': '600',
         'fontsize': '1.1em',
         'color': dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)', 
