@@ -11,6 +11,7 @@ export default function CountryCard({
       css={{
         'width': '270px',
         'height': '360px',
+        'boxShadow': 'rgba(0, 0, 0, 0.1) 0px 4px 12px'
     }}>
       <div css={{
         width: '100%',
