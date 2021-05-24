@@ -13,13 +13,38 @@ export default function CountryCard({
 
   const { dark } = useContext(ThemeContext);
 
+  const cardStyles = css`
+    margin: 20px;
+    width: 270px;
+    height: 360px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: ${dark ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)'};
+    color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
+    font-family: 'Nunito Sans', sans-serif;
+    border-radius: 6px 6px;
+    div { 
+      width: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px 6px 0 0;
+      }
+      h2 {
+        display: block;
+        font-weight: 800;
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+    }
+  `;
+
   const countryDataStyles = css`
     font-size: 14px;
     span {
       display: block;
       margin: 8px 0;
     }
-
     b {
       font-weight: 600;
     }
@@ -27,43 +52,17 @@ export default function CountryCard({
   
   return (
     <section 
-      css={{
-        'width': '270px',
-        'height': '360px',
-        'boxShadow': 'rgba(0, 0, 0, 0.1) 0px 4px 12px',
-        'backgroundColor': dark ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
-        'color': dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
-        'fontFamily': "'Nunito Sans', sans-serif",
-        'borderRadius': '6px 6px 6px 6px'
-    }}>
+      css={cardStyles}>
       <div css={{
-        width: '100%',
-        height: '45%',
-        objectFit: 'fill'
+        height: '45%'
       }}>
-        <img 
-          src={flag} 
-          loading="lazy"
-          css={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            borderRadius: '6px 6px 0 0'
-          }}
-        />
+        <img src={flag} loading="lazy"/>
       </div>
       <div css={{
         height: '55%',
-        borderRadius: '0 0 3% 3%',
-        borderTop: 'none',
         padding: '10%'
       }}>
-        <em css={{
-          display: 'block',
-          fontWeight: '800',
-          fontSize: '20px',
-          marginBottom: '30px'
-        }}>{name}</em>
+        <h2>{name}</h2>
         <div css={countryDataStyles}>
           <span><b>Population:</b>{` ${numberWithCommas(population)}`}</span>
           <span><b>Region:</b>{` ${region}`}</span>
@@ -73,4 +72,3 @@ export default function CountryCard({
     </section>
   );
 }
-
