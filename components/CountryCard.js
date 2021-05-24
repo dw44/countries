@@ -33,17 +33,17 @@ export default function CountryCard({
       h2 {
         display: block;
         font-weight: 800;
-        font-size: 20px;
+        font-size: 1.1em;
         margin-bottom: 30px;
       }
     }
   `;
 
   const countryDataStyles = css`
-    font-size: 14px;
+    font-size: 0.875em;
     span {
       display: block;
-      margin: 8px 0;
+      margin: 10px 0;
     }
     b {
       font-weight: 600;
@@ -51,19 +51,16 @@ export default function CountryCard({
   `;
   
   return (
-    <section 
-      css={cardStyles}>
-      <div css={{
-        height: '45%'
-      }}>
-        <img src={flag} loading="lazy"/>
+    <section css={ cardStyles }>
+      <div css={{ height: '45%' }}>
+        <img src={ flag } loading="lazy"/>
       </div>
       <div css={{
         height: '55%',
         padding: '10%'
       }}>
-        <h2>{name}</h2>
-        <div css={countryDataStyles}>
+        <h2>{ name }</h2>
+        <div css={ countryDataStyles }>
           <span><b>Population:</b>{` ${numberWithCommas(population)}`}</span>
           <span><b>Region:</b>{` ${region}`}</span>
           <span><b>Capital:</b>{` ${capital}`}</span>

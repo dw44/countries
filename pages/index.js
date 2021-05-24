@@ -26,6 +26,8 @@ export default function Home() {
     fetchCountries();
   }, []);
 
+  console.log(countries)
+
   return (
     <ThemeProvider>
       <Layout>
@@ -35,20 +37,13 @@ export default function Home() {
             <meta name="description" content="Statistics for the world's countries" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <CountryCard
-            flag="https://restcountries.eu/data/deu.svg"
-            name="Germany"
-            population={82500725}
-            region="Europe"
-            capital="Berlin"
-          />
-          <CountryCard
-            flag="https://restcountries.eu/data/pak.svg"
-            name="Pakistan"
-            population={221890644}
-            region="Asia"
-            capital="Islamabad"
-          />
+          {countries.map(country => <CountryCard 
+            flag={country.flag}
+            name={country.name}
+            population={country.population}
+            region={country.region}
+            capital={country.capital}
+          />)}
         </div>
       </Layout>
     </ThemeProvider>
