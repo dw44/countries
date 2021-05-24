@@ -9,8 +9,8 @@ import CountryCard from '../components/CountryCard';
 
 export default function Home() {
   const [countries, setCountries] = useState([]);
-  const [displayedCountries, setDisplayedCountries] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [regionFilter, setRegionFilter] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,10 +28,16 @@ export default function Home() {
     fetchCountries();
   }, []);
 
-
-
-  const searchQueryChangeHandler = event => {
-    setSearchQuery(event.target.value);
+  const changeHandler = (event, value) => {
+    // refactor to handle changes to both search query and region filter from same event handler
+    if (value === 'search') {
+      setSearchQuery(event.target.value);
+    }
+    if (value === 'region') {
+      setRegionFilter(event.target.value);
+    }
+    console.log(value);
+    console.log(regionFilter);
   }
 
   return (
@@ -44,8 +50,9 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <Navigation 
-            searchChangeHandler={searchQueryChangeHandler}
+            changeHandler={changeHandler}
             searchQuery={searchQuery}
+            regionFilter={regionFilter}
           />
           {searchQuery.trim().length
             ? countries.filter(country => country.name.toLowerCase().includes(searchQuery.trim())).map(country => 

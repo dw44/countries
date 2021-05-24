@@ -5,10 +5,15 @@ import { useState } from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function Navigation({ searchQuery, searchChangeHandler }) {
-  const handleChange = event => {
-    setSearchQuery(event.target.value);
-  }
+export default function Navigation({ searchQuery, changeHandler, regionFilter }) {
+  const regions = [
+    'Asia',
+    'Africa',
+    'Americas',
+    'Europe',
+    'Oceania',
+    'Polar',
+  ]
 
   return (
     <nav style={{margin: '10px'}}>
@@ -18,10 +23,15 @@ export default function Navigation({ searchQuery, searchChangeHandler }) {
           style={{margin: '0 10px'}} 
           type="text" 
           value={searchQuery}
-          onChange={searchChangeHandler}
+          onChange={event => changeHandler(event, 'search')}
           placeholder="Search for a country..." 
         />
       </div>
+      <select value={regionFilter} onChange={event => changeHandler(event, 'region')}>
+        {regions.map(region => 
+          <option value={region}>{region}</option>  
+        )}
+      </select>
     </nav>
   );
 }
