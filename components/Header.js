@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useContext } from 'react';
+import { css } from '@emotion/react';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -9,6 +10,7 @@ import { ThemeContext } from '../context/ThemeContext';
 
 export default function Header() {
   const { dark, toggleTheme } = useContext(ThemeContext);
+  // TODO: remove styles from jsx
   return (
     <header css={{
       'padding': '0 4em',
@@ -19,7 +21,9 @@ export default function Header() {
       'justifyContent': 'space-between',
       'fontFamily': "'Raleway', sans-serif",
       'backgroundColor': dark ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)',
-      'color': dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)', 
+      'color': dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)',
+      'position': 'sticky',
+      'top': '0'
     }}>
       <h1 css={{
         fontWeight: 700,

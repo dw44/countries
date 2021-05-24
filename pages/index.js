@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Layout';
+import Navigation from '../components/Navigation';
 import CountryCard from '../components/CountryCard';
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
             <meta name="description" content="Statistics for the world's countries" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
+          <Navigation />
           {countries.map(country => <CountryCard 
             flag={country.flag}
             name={country.name}
