@@ -28,6 +28,7 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter })
         />
       </div>
       <select value={regionFilter} onChange={event => changeHandler(event, 'region')}>
+        <option value="" selected>All</option>
         {regions.map(region => 
           <option value={region}>{region}</option>  
         )}

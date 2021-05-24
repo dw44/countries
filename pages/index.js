@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Layout';
 import Navigation from '../components/Navigation';
-import CountryCard from '../components/CountryCard';
+import Countries from '../components/Countries';
 
 export default function Home() {
   const [countries, setCountries] = useState([]);
@@ -14,6 +14,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // fetch country data from api on page load
     const fetchCountries = async () => {
       try {
         const response = await axios.get('https://restcountries.eu/rest/v2/all');
@@ -36,8 +37,6 @@ export default function Home() {
     if (value === 'region') {
       setRegionFilter(event.target.value);
     }
-    console.log(value);
-    console.log(regionFilter);
   }
 
   return (
@@ -54,28 +53,11 @@ export default function Home() {
             searchQuery={searchQuery}
             regionFilter={regionFilter}
           />
-          {searchQuery.trim().length
-            ? countries.filter(country => country.name.toLowerCase().includes(searchQuery.trim())).map(country => 
-                <CountryCard 
-                  key={country.alpha3Code}
-                  flag={country.flag}
-                  name={country.name}
-                  capital={country.capital}
-                  population={country.population}
-                  region={country.region}
-                />
-              )
-            : countries.map(country => 
-                <CountryCard 
-                  key={country.alpha3Code}
-                  flag={country.flag}
-                  name={country.name}
-                  capital={country.capital}
-                  population={country.population}
-                  region={country.region}
-                />
-              )
-          }
+          <Countries 
+            searchQuery={searchQuery.toLowerCase()}
+            regionFilter={regionFilter}
+            countries={countries}
+          />
         </div>
       </Layout>
     </ThemeProvider>
