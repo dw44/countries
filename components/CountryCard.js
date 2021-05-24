@@ -63,7 +63,7 @@ export default function CountryCard({
         <div css={ countryDataStyles }>
           <span><b>Population:</b>{` ${numberWithCommas(population)}`}</span>
           <span><b>Region:</b>{` ${region}`}</span>
-          <span><b>Capital:</b>{` ${capital}`}</span>
+          <span><b>Capital:</b>{` ${capital ? capital : 'N/A'}`}</span>
         </div>
       </div>
     </section>
