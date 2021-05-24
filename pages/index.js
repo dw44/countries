@@ -9,6 +9,8 @@ import CountryCard from '../components/CountryCard';
 
 export default function Home() {
   const [countries, setCountries] = useState([]);
+  const [displayedCountries, setDisplayedCountries] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,11 +25,14 @@ export default function Home() {
         console.log(error);
       }    
     }
-
     fetchCountries();
   }, []);
 
-  console.log(countries)
+
+
+  const searchQueryChangeHandler = event => {
+    setSearchQuery(event.target.value);
+  }
 
   return (
     <ThemeProvider>
@@ -38,14 +43,32 @@ export default function Home() {
             <meta name="description" content="Statistics for the world's countries" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <Navigation />
-          {countries.map(country => <CountryCard 
-            flag={country.flag}
-            name={country.name}
-            population={country.population}
-            region={country.region}
-            capital={country.capital}
-          />)}
+          <Navigation 
+            searchChangeHandler={searchQueryChangeHandler}
+            searchQuery={searchQuery}
+          />
+          {searchQuery.trim().length
+            ? countries.filter(country => country.name.toLowerCase().includes(searchQuery.trim())).map(country => 
+                <CountryCard 
+                  key={country.alpha3Code}
+                  flag={country.flag}
+                  name={country.name}
+                  capital={country.capital}
+                  population={country.population}
+                  region={country.region}
+                />
+              )
+            : countries.map(country => 
+                <CountryCard 
+                  key={country.alpha3Code}
+                  flag={country.flag}
+                  name={country.name}
+                  capital={country.capital}
+                  population={country.population}
+                  region={country.region}
+                />
+              )
+          }
         </div>
       </Layout>
     </ThemeProvider>
