@@ -1,33 +1,16 @@
 import axios from 'axios';
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Layout';
 import Navigation from '../components/Navigation';
 import Countries from '../components/Countries';
 
-export default function Home() {
-  const [countries, setCountries] = useState([]);
+export default function Home({ countries }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // fetch country data from api on page load
-    const fetchCountries = async () => {
-      try {
-        const response = await axios.get('https://restcountries.eu/rest/v2/all');
-        if (response.data) {
-          setCountries([...response.data]);
-          setLoading(false);
-        }
-      } catch (error) {
-        console.log(error);
-      }    
-    }
-    fetchCountries();
-  }, []);
 
   const changeHandler = (event, value) => {
     // refactor to handle changes to both search query and region filter from same event handler
@@ -62,4 +45,14 @@ export default function Home() {
       </Layout>
     </ThemeProvider>
   );
+}
+
+// might as well...not like they change :p
+export async function getStaticProps(context) {
+  const countryData = await axios.get('https://restcountries.eu/rest/v2/all');
+  return {
+    props: {
+      countries: [...countryData.data]
+    }
+  };
 }
