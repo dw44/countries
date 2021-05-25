@@ -3,12 +3,13 @@
 
 import { css } from '@emotion/react';
 import { useContext } from 'react';
+import Link from 'next/link';
 
 import { numberWithCommas } from '../utils/utils';
 import { ThemeContext } from '../context/ThemeContext';
 
 export default function CountryCard({
-  flag, name, population, region, capital
+  flag, name, population, region, capital, code
 }) {
 
   const { dark } = useContext(ThemeContext);
@@ -23,6 +24,7 @@ export default function CountryCard({
       color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
       font-family: 'Nunito Sans', sans-serif;
       border-radius: 6px 6px;
+      cursor: pointer;
       div { 
         width: 100%;
         img {
@@ -52,21 +54,25 @@ export default function CountryCard({
   }
   
   return (
-    <section css={ styles.card }>
-      <div css={{ height: '45%' }}>
-        <img src={ flag } loading="lazy"/>
-      </div>
-      <div css={{
-        height: '55%',
-        padding: '10%'
-      }}>
-        <h2>{ name }</h2>
-        <div css={ styles.countryData }>
-          <span><b>Population:</b>{` ${numberWithCommas(population)}`}</span>
-          <span><b>Region:</b>{` ${region}`}</span>
-          <span><b>Capital:</b>{` ${capital ? capital : 'N/A'}`}</span>
-        </div>
-      </div>
-    </section>
+      <Link href={`/${code}`}>
+        <a>
+          <section css={ styles.card }>
+            <div css={{ height: '45%' }}>
+              <img src={ flag } loading="lazy"/>
+            </div>
+            <div css={{
+              height: '55%',
+              padding: '10%'
+            }}>
+              <h2>{ name }</h2>
+              <div css={ styles.countryData }>
+                <span><b>Population:</b>{` ${numberWithCommas(population)}`}</span>
+                <span><b>Region:</b>{` ${region}`}</span>
+                <span><b>Capital:</b>{` ${capital ? capital : 'N/A'}`}</span>
+              </div>
+            </div>
+          </section>
+        </a>
+      </Link>
   );
 }

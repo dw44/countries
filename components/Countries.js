@@ -9,7 +9,7 @@ export default function Countries({ countries, regionFilter, searchQuery }) {
 
   // simplified for reusability
   const mapToCards = countriesToMap => (
-    <section>
+    <main>
       {countriesToMap.map(country => <CountryCard 
         key={country.alpha3Code}
         flag={country.flag}
@@ -17,8 +17,9 @@ export default function Countries({ countries, regionFilter, searchQuery }) {
         capital={country.capital}
         population={country.population}
         region={country.region}
+        code={country.alpha3Code}
       />)}
-    </section>
+    </main>
   );
 
   // no search query, no filter

@@ -28,9 +28,9 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter })
         />
       </div>
       <select value={regionFilter} onChange={event => changeHandler(event, 'region')}>
-        <option value="" selected>All</option>
+        <option value="">All</option>
         {regions.map(region => 
-          <option value={region}>{region}</option>  
+          <option key={region} value={region}>{region}</option>  
         )}
       </select>
     </nav>

@@ -10,7 +10,6 @@ import Countries from '../components/Countries';
 export default function Home({ countries }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
-  const [loading, setLoading] = useState(true);
 
   const changeHandler = (event, value) => {
     // refactor to handle changes to both search query and region filter from same event handler
@@ -48,7 +47,7 @@ export default function Home({ countries }) {
 }
 
 // might as well...not like they change :p
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const countryData = await axios.get('https://restcountries.eu/rest/v2/all');
   return {
     props: {
