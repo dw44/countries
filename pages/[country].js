@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export default function Country({ country }) {
   const router = useRouter();
+  console.log(country);
   return (
     <Layout>
       <div>

@@ -8,11 +8,7 @@ import Header from './Header';
 
 export default function Layout({ children }) {
   return (
-    <div css={{
-      margin: '0 auto',
-      maxWidth: '1440px',
-      minWidth: '375px',
-    }}>
+    <div>
       <Header />
       { children }
     </div>

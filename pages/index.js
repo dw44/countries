@@ -6,6 +6,7 @@ import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Layout';
 import Navigation from '../components/Navigation';
 import Countries from '../components/Countries';
+import CountryCard from '../components/CountryCard';
 
 export default function Home({ countries }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,25 +24,20 @@ export default function Home({ countries }) {
 
   return (
     <ThemeProvider>
-      <Layout>
-        <div className="App">
+      <div className="App">
+        <Layout>
           <Head>
             <title>Countries</title>
             <meta name="description" content="Statistics for the world's countries" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <Navigation 
-            changeHandler={changeHandler}
-            searchQuery={searchQuery}
-            regionFilter={regionFilter}
-          />
-          <Countries 
-            searchQuery={searchQuery.toLowerCase()}
-            regionFilter={regionFilter}
-            countries={countries}
-          />
-        </div>
-      </Layout>
+        </Layout> 
+        <Countries
+          searchQuery={searchQuery}
+          regionFilter={regionFilter}
+          countries={countries}
+        />
+      </div>
     </ThemeProvider>
   );
 }

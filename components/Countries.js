@@ -1,3 +1,7 @@
+// for emotion
+/** @jsxImportSource @emotion/react */
+
+import { css } from '@emotion/react';
 import { useContext } from "react";
 
 import { ThemeContext } from "../context/ThemeContext";
@@ -6,10 +10,15 @@ import CountryCard from "./CountryCard";
 
 export default function Countries({ countries, regionFilter, searchQuery }) {
   const { dark } = useContext(ThemeContext);
+  const styles = css`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+  `;
 
   // simplified for reusability
   const mapToCards = countriesToMap => (
-    <main>
+    <main css={styles}>
       {countriesToMap.map(country => <CountryCard 
         key={country.alpha3Code}
         flag={country.flag}

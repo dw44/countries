@@ -1,7 +1,6 @@
 // for emotion
 /** @jsxImportSource @emotion/react */
 
-import { useState } from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -16,7 +15,7 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter })
   ]
 
   return (
-    <nav style={{margin: '10px'}}>
+    <nav style={{margin: '10px', width: '100%'}}>
       <div>
         <FontAwesomeIcon css={{ 'height': '1em' }} icon={ faSearch } />
         <input
