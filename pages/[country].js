@@ -3,16 +3,20 @@ import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import axios from 'axios';
 
+import { ThemeProvider } from '../context/ThemeContext';
+
 export default function Country({ country }) {
   const router = useRouter();
   console.log(country);
   return (
-    <Layout>
-      <div>
-        <p>Country: {country.name}</p>
-        <button type="button" onClick={() => router.back()}>Back</button>
-      </div>
-    </Layout>
+    <ThemeProvider>   
+      <Layout>
+        <div>
+          <p>Country: {country.name}</p>
+          <button type="button" onClick={() => router.back()}>Back</button>
+        </div>
+      </Layout>
+    </ThemeProvider>
   );
 }
 

@@ -4,9 +4,9 @@ import { useState } from 'react';
 
 import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Layout';
-import Navigation from '../components/Navigation';
-import Countries from '../components/Countries';
-import CountryCard from '../components/CountryCard';
+// import Navigation from '../components/Navigation';
+// import Countries from '../components/Countries';
+// import CountryCard from '../components/CountryCard';
 
 export default function Home({ countries }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,11 +32,11 @@ export default function Home({ countries }) {
             <link rel="icon" href="/favicon.ico" />
           </Head>
         </Layout> 
-        <Countries
+        {/* <Countries
           searchQuery={searchQuery}
           regionFilter={regionFilter}
           countries={countries}
-        />
+        /> */}
       </div>
     </ThemeProvider>
   );
