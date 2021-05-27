@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   const styles = css`
     width: 100vw;
     min-width: 375px;
-  `;
+    `;
   return (
     <div css={styles}>
       <Header />

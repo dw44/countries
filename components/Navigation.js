@@ -24,9 +24,10 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter })
     min-width: 375px;
     border: 1px solid #000;
     padding: 0.75em;
+    background-color: ${dark ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 98%)'};
     div {
-      border: 1px solid #000;
       width: 100%;
+      max-width: 500px;
       height: 3.25em;
       border-radius: 0.333em;
       padding: 0 0 0 1em;
