@@ -11,8 +11,7 @@ import Header from './Header';
 export default function Layout({ children }) {
   const styles = css`
     width: 100vw;
-    height: 100vh;
-    border: 10px solid #000;
+    min-width: 375px;
   `;
   return (
     <div css={styles}>

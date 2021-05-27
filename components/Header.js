@@ -8,13 +8,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ThemeContext } from '../context/ThemeContext';
 
+// responsive header
+// display title, dark mode
 export default function Header() {
   const { dark, toggleTheme } = useContext(ThemeContext);
+
   // TODO: remove styles from jsx
   const styles = css`
     width: 100%;
     min-width: 375px;
-    height: 4em;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Nunito Sans', sans-serif;
     position: sticky;
     top: 0;
@@ -23,7 +29,31 @@ export default function Header() {
     box-shadow: 0 2px 2px 1px #ccc;
     font-family: inherit;
     div {
+      margin: 0 auto;
+      padding: 0.625em;
+      width: 100%;
+      max-width: 1440px;
+      min-width: 375px;
       border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h1 {
+        font-size: 1.25em;
+        font-weight: 800;
+      }
+      button {
+        width: 8em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 0.875em;
+        border: none;
+        color: inherit;
+      }  
     }
     `;
 
