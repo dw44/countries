@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Layout';
+import Navigation from '../components/Navigation';
 // import Navigation from '../components/Navigation';
 // import Countries from '../components/Countries';
 // import CountryCard from '../components/CountryCard';
@@ -31,7 +32,12 @@ export default function Home({ countries }) {
             <meta name="description" content="Statistics for the world's countries" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-        </Layout> 
+        </Layout>
+        <Navigation 
+          searchQuery={searchQuery}
+          regionFilter={regionFilter}
+          changeHandler={changeHandler}
+        />
         {/* <Countries
           searchQuery={searchQuery}
           regionFilter={regionFilter}

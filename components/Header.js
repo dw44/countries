@@ -34,7 +34,6 @@ export default function Header() {
       width: 100%;
       max-width: 1440px;
       min-width: 375px;
-      border: 1px solid black;
       display: flex;
       align-items: center;
       justify-content: space-between;
