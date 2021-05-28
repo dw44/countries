@@ -67,7 +67,11 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter, s
           placeholder="Search for a country..." 
         />
       </div>
-      <RegionFilter dark={dark} changeHandler={regionChangeHandler} />
+      <RegionFilter 
+        dark={dark} 
+        changeHandler={regionChangeHandler} 
+        selected={regionFilter}
+      />
     </nav>
   );
 }

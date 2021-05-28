@@ -38,11 +38,11 @@ export default function Home({ countries }) {
           setRegionFilter={setRegionFilter}
           changeHandler={changeHandler}
         />
-        <Countries
+        {/* <Countries
           searchQuery={searchQuery}
           regionFilter={regionFilter}
           countries={countries}
-        />
+        /> */}
       </div>
     </ThemeProvider>
   );
