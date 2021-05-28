@@ -35,6 +35,7 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter, s
       justify-content: flex-start;
       background-color: ${dark ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)'};
       color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
       input {
         flex: 2;
         padding: 0.5em 1em;

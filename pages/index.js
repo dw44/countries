@@ -11,8 +11,6 @@ import Navigation from '../components/Navigation/Navigation';
 import Countries from '../components/Countries';
 
 export default function Home({ countries }) {
-  const { dark } = useContext(ThemeContext);
-  
   const [searchQuery, setSearchQuery] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
 
@@ -30,7 +28,6 @@ export default function Home({ countries }) {
 
   const style = css`
     width: 100vw;
-    height: 100vh;
     min-width: 375px;
   `;
 
@@ -49,11 +46,11 @@ export default function Home({ countries }) {
             setRegionFilter={setRegionFilter}
             changeHandler={changeHandler}
           />
-          {/* <Countries
+          <Countries
             searchQuery={searchQuery}
             regionFilter={regionFilter}
             countries={countries}
-          /> */}
+          />
         </Layout>
       </div>
     </ThemeProvider>

@@ -17,14 +17,14 @@ export default function CountryCard({
   const styles = {
     card: css`
       width: 270px;
-      height: 360px;
-      margin-bottom: 2em;
+      height: 410px;
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       background-color: ${dark ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)'};
       color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
       font-family: 'Nunito Sans', sans-serif;
       border-radius: 6px 6px;
       cursor: pointer;
+      margin-bottom: 1em;
       div { 
         width: 100%;
         img {

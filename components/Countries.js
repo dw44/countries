@@ -11,9 +11,13 @@ import CountryCard from "./CountryCard";
 export default function Countries({ countries, regionFilter, searchQuery }) {
   const { dark } = useContext(ThemeContext);
   const styles = css`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
+    margin: 0 auto;
+    padding: 0 0.444em;
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   `;
 
   // simplified for reusability

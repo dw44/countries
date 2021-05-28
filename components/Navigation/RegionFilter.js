@@ -25,6 +25,7 @@ export default function RegionFilter({ changeHandler, selected, dark }) {
       color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
       border-radius: 6px;
       margin: 10px 0;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
       @media (min-width: 892px) {
         margin: 0;
       }

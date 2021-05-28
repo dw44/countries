@@ -30,7 +30,7 @@ export default function Header() {
     font-family: inherit;
     div {
       margin: 0 auto;
-      padding: 0.625em;
+      padding: 0 0.75em;
       width: 100%;
       max-width: 1440px;
       min-width: 375px;
