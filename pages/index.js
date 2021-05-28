@@ -6,7 +6,7 @@ import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Layout';
 import Navigation from '../components/Navigation';
 // import Navigation from '../components/Navigation';
-// import Countries from '../components/Countries';
+import Countries from '../components/Countries';
 // import CountryCard from '../components/CountryCard';
 
 export default function Home({ countries }) {
@@ -16,6 +16,7 @@ export default function Home({ countries }) {
   const changeHandler = (event, value) => {
     // refactor to handle changes to both search query and region filter from same event handler
     if (value === 'search') {
+      // refactored to convert all queries to lowercase
       setSearchQuery(event.target.value);
     }
     if (value === 'region') {
@@ -36,13 +37,14 @@ export default function Home({ countries }) {
         <Navigation 
           searchQuery={searchQuery}
           regionFilter={regionFilter}
+          setRegionFilter={setRegionFilter}
           changeHandler={changeHandler}
         />
-        {/* <Countries
+        <Countries
           searchQuery={searchQuery}
           regionFilter={regionFilter}
           countries={countries}
-        /> */}
+        />
       </div>
     </ThemeProvider>
   );

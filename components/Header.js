@@ -17,7 +17,7 @@ export default function Header() {
   const styles = css`
     width: 100%;
     min-width: 375px;
-    height: 3em;
+    height: 5em;
     display: flex;
     justify-content: center;
     align-items: center;

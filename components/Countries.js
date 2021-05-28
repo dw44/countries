@@ -30,7 +30,7 @@ export default function Countries({ countries, regionFilter, searchQuery }) {
       />)}
     </main>
   );
-
+  
   // no search query, no filter
   if (!searchQuery.trim().length && !regionFilter.length) {
     return mapToCards(countries);

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ThemeContext } from '../context/ThemeContext';
 
-export default function Navigation({ searchQuery, changeHandler, regionFilter }) {
+export default function Navigation({ searchQuery, changeHandler, regionFilter, setRegionFilter }) {
   const { dark } = useContext(ThemeContext);
   const regions = [
     'Asia',
@@ -22,7 +22,6 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter })
   const styles = css`
     width: 100%;
     min-width: 375px;
-    border: 1px solid #000;
     padding: 0.75em;
     background-color: ${dark ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 98%)'};
     div {
@@ -56,6 +55,14 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter })
     }
   `;
 
+  const regionChangeHandler = region => {
+    if (region === regionFilter) {
+      setRegionFilter('');
+    } else {
+      setRegionFilter(region);
+    }
+  }
+
   return (
     <nav css={ styles }>
       <div>
@@ -67,12 +74,16 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter })
           placeholder="Search for a country..." 
         />
       </div>
-      <select value={regionFilter} onChange={event => changeHandler(event, 'region')}>
-        <option value="">All</option>
-        {regions.map(region => 
-          <option key={region} value={region}>{region}</option>  
-        )}
-      </select>
+      <details>
+        <summary>Filter By Region</summary>
+        <ul>
+          {regions.map(region => 
+            <li key={region}>
+              <button type="button" onClick={() => regionChangeHandler(region)}>{region}</button>
+            </li>
+          )}
+        </ul>
+      </details>
     </nav>
   );
 }
