@@ -17,6 +17,7 @@ export default function RegionFilter({ changeHandler, selected, dark }) {
   ];
 
   const styles = {
+    // for the details element containing the dropdown list of regions
     details: css`
       position: relative;
       width: 270px;
@@ -24,11 +25,14 @@ export default function RegionFilter({ changeHandler, selected, dark }) {
       color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
       border-radius: 6px;
       margin: 10px 0;
+      @media (min-width: 892px) {
+        margin: 0;
+      }
       &[open] {
         z-index: 1;
       }
       summary {
-        padding: 1rem;
+        padding: 1em;
         cursor: pointer;
         border-radius: 5px;
         background-color: inherit;
@@ -41,8 +45,8 @@ export default function RegionFilter({ changeHandler, selected, dark }) {
           content: '';
           display: inline-block;
           float: right;
-          width: .5rem;
-          height: .5rem;
+          width: .5em;
+          height: .5em;
           border-bottom: 1px solid currentColor;
           border-left: 1px solid currentColor;
           border-bottom-left-radius: 2px;
@@ -54,16 +58,6 @@ export default function RegionFilter({ changeHandler, selected, dark }) {
           outline: none;
         }
       }
-      &[open] summary:before {
-        content: '';
-        display: block;
-        width: 100vw;
-        height: 100vh;
-        background: transparent;
-        position: fixed;
-        top: 0;
-        left: 0;
-      }
       &[open] summary::after {
         transform: rotate(-45deg) translate(0%, 0%);
       }
@@ -73,12 +67,13 @@ export default function RegionFilter({ changeHandler, selected, dark }) {
         position: absolute;
         top: calc(100% + .5rem);
         left: 0;
-        padding: 1rem;
+        padding: 1em;
         margin: 0;
         box-sizing: border-box;
         border-radius: 6px;
       }
     `,
+    // for each button +
     buttons: css`
       background-color: inherit;
       color: inherit;
@@ -92,8 +87,14 @@ export default function RegionFilter({ changeHandler, selected, dark }) {
     `
   }
 
+  // to automatically close menu when an option is selected
+  const onToggle = event => {
+    event.preventDefault();
+    setIsOpen(!isOpen);
+  }
+
   return (
-    <details open={isOpen} onChange={console.log('ch')} css={styles.details}>
+    <details open={isOpen} onClick={onToggle} css={styles.details}>
       <summary>{selected === '' ? 'Filter By Region' : `Filter By Region (${selected})`}</summary>
       <ul>
         {regions.map(region => 

@@ -14,9 +14,16 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter, s
 
   const styles = css`
     width: 100%;
+    max-width: 1440px;
     min-width: 375px;
+    margin: 0 auto;
     padding: 0.75em;
     background-color: ${dark ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 98%)'};
+    @media only screen and (min-width: 892px) {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75em 0.5em;
+    }
     div {
       width: 100%;
       max-width: 500px;
