@@ -6,18 +6,11 @@ import { css } from '@emotion/react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { ThemeContext } from '../context/ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
+import RegionFilter from './RegionFilter';
 
 export default function Navigation({ searchQuery, changeHandler, regionFilter, setRegionFilter }) {
   const { dark } = useContext(ThemeContext);
-  const regions = [
-    'Asia',
-    'Africa',
-    'Americas',
-    'Europe',
-    'Oceania',
-    'Polar',
-  ];
 
   const styles = css`
     width: 100%;
@@ -74,16 +67,7 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter, s
           placeholder="Search for a country..." 
         />
       </div>
-      <details>
-        <summary>Filter By Region</summary>
-        <ul>
-          {regions.map(region => 
-            <li key={region}>
-              <button type="button" onClick={() => regionChangeHandler(region)}>{region}</button>
-            </li>
-          )}
-        </ul>
-      </details>
+      <RegionFilter dark={dark} changeHandler={regionChangeHandler} />
     </nav>
   );
 }

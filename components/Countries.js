@@ -42,19 +42,21 @@ export default function Countries({ countries, regionFilter, searchQuery }) {
       countries.filter(country => country.region === regionFilter));
   }
 
+  // search query verification edited to be case insensitive
   // search query but no region filter
   if (searchQuery.trim().length && !regionFilter.length) {
     return mapToCards(
-      countries.filter(country => country.name.toLowerCase().includes(searchQuery))
+      countries.filter(country => country.name.toLowerCase().includes(searchQuery.toLowerCase()))
     );
   }
 
+  // search query verification edited to be case insensitive
   // search query and region filter
   if (searchQuery.trim() && regionFilter) {
     return mapToCards(
       countries
         .filter(country => country.region === regionFilter)
-        .filter(country => country.name.toLowerCase().includes(searchQuery))
+        .filter(country => country.name.toLowerCase().includes(searchQuery.toLowerCase()))
     );
   }
 }
