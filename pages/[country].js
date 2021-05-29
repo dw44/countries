@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import axios from 'axios';
 
 import { ThemeProvider } from '../context/ThemeContext';
+import { numberWithCommas } from '../utils/utils';
 
 export default function Country({ country }) {
   const router = useRouter();

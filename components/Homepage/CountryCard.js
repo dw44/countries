@@ -5,8 +5,8 @@ import { css } from '@emotion/react';
 import { useContext } from 'react';
 import Link from 'next/link';
 
-import { numberWithCommas } from '../utils/utils';
-import { ThemeContext } from '../context/ThemeContext';
+import { numberWithCommas } from '../../utils/utils';
+import { ThemeContext } from '../../context/ThemeContext';
 
 export default function CountryCard({
   flag, name, population, region, capital, code

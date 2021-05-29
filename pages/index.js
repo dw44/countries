@@ -3,12 +3,12 @@
 import axios from 'axios';
 import Head from 'next/head';
 import { css } from '@emotion/react';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
-import { ThemeProvider, ThemeContext } from '../context/ThemeContext';111
+import { ThemeProvider } from '../context/ThemeContext';111
 import Layout from '../components/Layout';
-import Navigation from '../components/Navigation/Navigation';
-import Countries from '../components/Countries';
+import Navigation from '../components/Homepage/Navigation/Navigation';
+import Countries from '../components/Homepage/Countries';
 
 export default function Home({ countries }) {
   const [searchQuery, setSearchQuery] = useState('');
