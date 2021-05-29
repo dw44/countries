@@ -4,7 +4,7 @@
 import { css } from '@emotion/react';
 
 import { useContext } from "react";
-import { ThemeContext } from '../context/ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
 
 import Header from './Header';
 

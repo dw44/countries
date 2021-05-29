@@ -6,7 +6,7 @@ import { css } from '@emotion/react';
 import { useState } from 'react';
 
 import { ThemeProvider } from '../context/ThemeContext';111
-import Layout from '../components/Layout';
+import Layout from '../components/Boilerplate/Layout';
 import Navigation from '../components/Homepage/Navigation/Navigation';
 import Countries from '../components/Homepage/Countries';
 
