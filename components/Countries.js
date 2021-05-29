@@ -2,9 +2,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from '@emotion/react';
-import { useContext } from "react";
 
-import { ThemeContext } from "../context/ThemeContext";
 import CountryCard from "./CountryCard";
 
 

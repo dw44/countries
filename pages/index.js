@@ -15,7 +15,6 @@ export default function Home({ countries }) {
   const [regionFilter, setRegionFilter] = useState('');
 
   const changeHandler = (event, value) => {
-
     // refactor to handle changes to both search query and region filter from same event handler
     if (value === 'search') {
       // refactored to convert all queries to lowercase
@@ -57,7 +56,7 @@ export default function Home({ countries }) {
   );
 }
 
-// might as well...not like they change :p
+
 export async function getStaticProps() {
   const countryData = await axios.get('https://restcountries.eu/rest/v2/all');
   return {

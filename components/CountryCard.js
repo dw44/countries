@@ -14,6 +14,7 @@ export default function CountryCard({
 
   const { dark } = useContext(ThemeContext);
 
+  // sizes in px since card size remains constant across screen sizes
   const styles = {
     card: css`
       width: 270px;
