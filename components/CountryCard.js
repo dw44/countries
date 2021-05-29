@@ -24,7 +24,7 @@ export default function CountryCard({
       font-family: 'Nunito Sans', sans-serif;
       border-radius: 6px 6px;
       cursor: pointer;
-      margin-bottom: 1em;
+      margin: 2em 1em;
       div { 
         width: 100%;
         img {

@@ -28,6 +28,7 @@ export default function Header() {
     background-color: ${dark ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)'};
     box-shadow: 0 1px ${dark ? '#222' : '#ccc'};
     font-family: inherit;
+    z-index: 2;
     div {
       margin: 0 auto;
       padding: 0 0.75em;
