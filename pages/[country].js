@@ -1,14 +1,19 @@
 import axios from 'axios';
+import Head from 'next/head';
 
 import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Boilerplate/Layout';
 import CountryPage from '../components/CountryDetails/Country';
 
-export default function Country({ country }) {
+export default function Country({ country, countryCodes }) {
   return (
-    <ThemeProvider>   
+    <ThemeProvider>
+      <Head>
+        <title>{country.name}</title>
+        <meta name={`Country Data for ${country.name}`} content={`Statistics for the ${country.name}`} />
+      </Head>   
       <Layout>
-        <CountryPage country={{...country}} />
+        <CountryPage codes={countryCodes} country={{...country}} />
       </Layout>
     </ThemeProvider>
   );
@@ -18,9 +23,14 @@ export default function Country({ country }) {
 export async function getStaticProps(context) {
   const countryCode = context.params.country;
   const country = await axios.get(`https://restcountries.eu/rest/v2/alpha/${countryCode}`);
+  // get all of them here to avoid multiple requests everytime a country page is loaded
+  // to get paths for neighboring states
+  const countryCodes = await axios.get('https://restcountries.eu/rest/v2/all?fields=name;alpha3Code');
+
   return {
     props: {
-      country: country.data
+      country: country.data,
+      countryCodes: countryCodes.data
     }
   };
 }
