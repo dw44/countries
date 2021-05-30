@@ -15,8 +15,10 @@ export default function Countries({ countries, regionFilter, searchQuery }) {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    padding: 10px;
     @media only screen and (max-width: 593px) {
-      flex-direction: column; 
+      flex-direction: column;
+      padding: 0; 
     }
   `;
 

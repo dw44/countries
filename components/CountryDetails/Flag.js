@@ -1,14 +1,20 @@
-import Image from 'next/image';
+// for emotion
+/** @jsxImportSource @emotion/react */
+
+import { css } from '@emotion/react';
 
 export default function Flag({ name, flag }) {
+  const styles = css`
+    max-width: 720px;
+    width: 100%;
+  `;
+
   return (
-    <Image 
-      src={ flag }
-      alt={ name }
-      quality={100}
-      layout="intrinsic"
-      width={720}
-      height={480}
+    <img
+      css={styles} 
+      src={flag}
+      alt={name}
+      loading="lazy"
     />
   );
 }

@@ -31,7 +31,7 @@ export default function Header() {
     z-index: 2;
     div {
       margin: 0 auto;
-      padding: 0 0.75em;
+      padding: 0 1.25em 0 0.75em;
       width: 100%;
       max-width: 1440px;
       min-width: 375px;
