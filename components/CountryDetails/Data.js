@@ -8,12 +8,12 @@ import { numberWithCommas } from '../../utils/utils';
 import { ThemeContext } from '../../context/ThemeContext';
 
 export default function CountryData({ country }) {
-  const dark = useContext(ThemeContext);
+  const {dark} = useContext(ThemeContext);
   const styles = {
     container: css`
       width: 100%;
-      border: 1px solid #000;
       margin-top: 2em;
+      color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
       h1 {
         margin-bottom: 0.777em;
       }

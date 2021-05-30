@@ -31,7 +31,7 @@ export async function getStaticPaths() {
   const countries = rawCountryData.data;
   // each path fetches entries from api using their alpha3Code property
   const paths = countries.map(country => ({
-    params: { country: country.alpha3Code }
+    params: { country: country.alpha3Code  }
   }));
 
   return {
