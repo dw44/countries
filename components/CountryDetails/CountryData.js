@@ -12,7 +12,7 @@ export default function CountryData({ country }) {
   const styles = {
     container: css`
       width: 100%;
-      margin-top: 2em;
+      margin-top: 0.333em;
       color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
       h1 {
         margin-bottom: 0.777em;

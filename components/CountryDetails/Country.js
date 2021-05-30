@@ -10,7 +10,7 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { ThemeContext } from '../../context/ThemeContext';
 import Flag from './Flag';
-import CountryData from './Data';
+import CountryData from './CountryData';
 
 export default function Country({ country, codes }) {
   const { dark } = useContext(ThemeContext);
@@ -46,18 +46,24 @@ export default function Country({ country, codes }) {
       width: 100%;
       margin-top: 2em;
       padding: 1em;
-      display: grid;
-      grid-template-columns: 100%;
+      display: block;
+      @media only screen and (min-width: 992px) {
+        display: grid;
+        grid-gap: 2em;
+        grid-template-columns: 50% 50%;
+      }
     `, 
     borderButtonContainer: css`
       width: 100%;
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
     `,
     borderButton: css`
       margin: 1em;
-      width: 25%;
-      max-width: 12.5em;
+      width: 100%;
+      width: 12.5em;
       height: 3em;
       border: none;
       border-radius: 4px;
@@ -66,7 +72,12 @@ export default function Country({ country, codes }) {
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       font: inherit;
       font-size: 0.875em;
+      cursor: pointer;
     `,
+    borderLabel: css`
+      font-weight: 800;
+      margin: 1em;
+    `
   }
 
   return (
@@ -77,14 +88,16 @@ export default function Country({ country, codes }) {
       </button>
       <div css={styles.container}>
         <Flag name={country.name} flag={country.flag} />
-        <CountryData country={country} />
-      </div>
-      <div css={styles.borderButtonContainer}>
-      {country.borders.map(countryCode => 
-        <Link key={countryCode} href={`/${countryCode}`}>
-          <button css={styles.borderButton}>{codes.find(country => country.alpha3Code === countryCode).name}</button>
-        </Link>
-      )}
+        <div>
+          <CountryData country={country} />
+          <div css={styles.borderButtonContainer}>
+            <span css={styles.borderLabel}>Border Countries:{' '}</span>{country.borders.map(countryCode => 
+              <Link key={countryCode} href={`/${countryCode}`}>
+                <button css={styles.borderButton}>{codes.find(country => country.alpha3Code === countryCode).name}</button>
+              </Link>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
