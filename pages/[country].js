@@ -1,21 +1,14 @@
-import { useRouter } from 'next/router';
-
-import Layout from '../components/Boilerplate/Layout';
 import axios from 'axios';
 
 import { ThemeProvider } from '../context/ThemeContext';
-import { numberWithCommas } from '../utils/utils';
+import Layout from '../components/Boilerplate/Layout';
+import CountryPage from '../components/CountryDetails/Country';
 
 export default function Country({ country }) {
-  const router = useRouter();
-  console.log(country);
   return (
     <ThemeProvider>   
       <Layout>
-        <div>
-          <p>Country: {country.name}</p>
-          <button type="button" onClick={() => router.back()}>Back</button>
-        </div>
+        <CountryPage country={{...country}} />
       </Layout>
     </ThemeProvider>
   );

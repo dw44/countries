@@ -61,7 +61,7 @@ export default function Header() {
     <header css={ styles }>
       <div>
         <h1>
-          Where in the world?
+          <a href="/">Where in the world?</a>
         </h1>
         <button type="button" onClick={ toggleTheme }>
           <FontAwesomeIcon css={{height: '1.5em'}} icon={dark ? faSun : faMoon} />
