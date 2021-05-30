@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { ThemeContext } from '../../context/ThemeContext';
+import Flag from './Flag';
 
 export default function Country({ country }) {
   console.log({...country});
@@ -21,6 +22,7 @@ export default function Country({ country }) {
       min-width: 375px;
       margin: 0 auto;
       padding: 1em 0.5em;
+      border: 1px solid #000;
     `,
     backButton: css`
       width: 7em;
@@ -41,6 +43,12 @@ export default function Country({ country }) {
         font-size: 1.5em;
       }
     `,
+    contentContainer: css`
+      width: 100%;
+      margin: 2em 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    `,
   }
 
   return (
@@ -49,6 +57,13 @@ export default function Country({ country }) {
         <FontAwesomeIcon icon={faLongArrowAltLeft} />
         Back
       </button>
+      <div style={styles.contentContainer}>
+        <Flag flag={country.flag} name={country.name} />
+      </div>
+      <div css={{
+        'height': '100%',
+        'width': '100%',
+      }}></div>
     </section>
   );
 }

@@ -13,6 +13,7 @@ export default function Layout({ children }) {
 
   const styles = css`
     width: 100%;
+    min-height: 100vh;
     background-color: ${dark ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 98%)'};
   `;
   
