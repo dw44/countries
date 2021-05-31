@@ -62,7 +62,6 @@ export default function Country({ country, codes }) {
     `,
     borderButton: css`
       margin: 1em;
-      width: 100%;
       width: 12.5em;
       height: 3em;
       border: none;
@@ -74,9 +73,15 @@ export default function Country({ country, codes }) {
       font-size: 0.875em;
       cursor: pointer;
     `,
-    borderLabel: css`
-      font-weight: 800;
-      margin: 1em;
+    label: css`
+    margin: 1em;
+    width: 175px;
+    text-align: center;
+    height: 3em;
+    border: none;
+    background-color: transparent;
+    color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
+    font-weight: 800;
     `
   }
 
@@ -91,7 +96,8 @@ export default function Country({ country, codes }) {
         <div>
           <CountryData country={country} />
           <div css={styles.borderButtonContainer}>
-            <span css={styles.borderLabel}>Border Countries:{' '}</span>{country.borders.map(countryCode => 
+            {country.borders.length ? <p css={styles.label}>Border Countries: </p> : null}
+            {country.borders.map(countryCode => 
               <Link key={countryCode} href={`/${countryCode}`}>
                 <button css={styles.borderButton}>{codes.find(country => country.alpha3Code === countryCode).name}</button>
               </Link>
