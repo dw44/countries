@@ -1,8 +1,8 @@
 # Countries
-## [app]https://countries-tanzeel.vercel.app/{:target="_blank"}
+## https://countries-tanzeel.vercel.app/
 
 ## Challenge from 'Front End Mentor'.<br/>
-### [specification] https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca/hub/rest-countries-api-with-color-theme-switcher-rTJuFkhqm{:target="_blank"}
+### https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca/hub/rest-countries-api-with-color-theme-switcher-rTJuFkhqm
 
 ## Functionality
 
