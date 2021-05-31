@@ -19,6 +19,7 @@ export default function Country({ country, codes }) {
   const styles = {
     section: css`
       width: 100%;
+      max-width: 1440px;
       margin: 0 auto;
       padding: 1em 0.5em;
     `,
