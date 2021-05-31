@@ -38,3 +38,6 @@ yarn-error.log*
 
 # personal to do list
 /TDL.md
+
+# readme gifs
+/public/demo
