@@ -56,14 +56,13 @@ export default function Country({ country, codes }) {
     `, 
     borderButtonContainer: css`
       width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1em;
+      padding: 1em;
     `,
     borderButton: css`
-      margin: 1em;
-      width: 12.5em;
+      width: 7em;
       height: 3em;
       border: none;
       border-radius: 4px;
@@ -76,13 +75,15 @@ export default function Country({ country, codes }) {
     `,
     label: css`
     margin: 1em;
-    width: 175px;
     text-align: center;
-    height: 3em;
     border: none;
     background-color: transparent;
+    grid-column: span 2;
     color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
-    font-weight: 800;
+    font-weight: 600;
+    @media only screen and (max-width: 992px) {
+      grid-column: span 3;
+    }
     `
   }
 
@@ -98,11 +99,17 @@ export default function Country({ country, codes }) {
           <CountryData country={country} />
           <div css={styles.borderButtonContainer}>
             {country.borders.length ? <p css={styles.label}>Border Countries: </p> : null}
-            {country.borders.map(countryCode => 
-              <Link key={countryCode} href={`/${countryCode}`}>
-                <button css={styles.borderButton}>{codes.find(country => country.alpha3Code === countryCode).name}</button>
-              </Link>
-            )}
+            {country.borders.map(countryCode => {
+              // long names mess up button layout 
+              const name = codes.find(country => country.alpha3Code === countryCode).name; 
+              return (
+                <Link key={countryCode} href={`/${countryCode}`}>
+                  <button css={styles.borderButton}>
+                    {name.length <= 12 ? name : `${name.substring(0,10)}...`}
+                  </button>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
