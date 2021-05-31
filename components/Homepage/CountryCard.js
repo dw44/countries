@@ -58,7 +58,7 @@ export default function CountryCard({
       <Link href={`/${code}`}>
         <section css={ styles.card }>
           <div css={{ height: '45%' }}>
-            <img src={ flag } loading="lazy"/>
+            <img src={ flag } alt={name} loading="lazy"/>
           </div>
           <div css={{
             height: '55%',

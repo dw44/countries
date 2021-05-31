@@ -78,7 +78,7 @@ export default function Country({ country, codes }) {
     text-align: center;
     border: none;
     background-color: transparent;
-    grid-column: span 2;
+
     color: ${dark ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
     font-weight: 600;
     @media only screen and (max-width: 992px) {
