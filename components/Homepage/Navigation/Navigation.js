@@ -9,7 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ThemeContext } from '../../../context/ThemeContext';
 import RegionFilter from './RegionFilter';
 
-export default function Navigation({ searchQuery, changeHandler, regionFilter, setRegionFilter }) {
+export default function Navigation({
+  searchQuery, changeHandler, regionFilter, setRegionFilter,
+}) {
   const { dark } = useContext(ThemeContext);
 
   const styles = css`
@@ -56,28 +58,28 @@ export default function Navigation({ searchQuery, changeHandler, regionFilter, s
     }
   `;
 
-  const regionChangeHandler = region => {
+  const regionChangeHandler = (region) => {
     if (region === regionFilter) {
       setRegionFilter('');
     } else {
       setRegionFilter(region);
     }
-  }
+  };
 
   return (
-    <nav css={ styles }>
+    <nav css={styles}>
       <div>
-        <FontAwesomeIcon css={{ 'height': '1em' }} icon={ faSearch } />
+        <FontAwesomeIcon css={{ height: '1em' }} icon={faSearch} />
         <input
-          type="text" 
+          type="text"
           value={searchQuery}
-          onChange={event => changeHandler(event, 'search')}
-          placeholder="Search for a country..." 
+          onChange={(event) => changeHandler(event, 'search')}
+          placeholder="Search for a country..."
         />
       </div>
-      <RegionFilter 
-        dark={dark} 
-        changeHandler={regionChangeHandler} 
+      <RegionFilter
+        dark={dark}
+        changeHandler={regionChangeHandler}
         selected={regionFilter}
       />
     </nav>

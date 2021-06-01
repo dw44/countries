@@ -11,9 +11,9 @@ export default function Country({ country, countryCodes }) {
       <Head>
         <title>{country.name}</title>
         <meta name={`Country Data for ${country.name}`} content={`Statistics for the ${country.name}`} />
-      </Head>   
+      </Head>
       <Layout>
-        <CountryPage codes={countryCodes} country={{...country}} />
+        <CountryPage codes={countryCodes} country={{ ...country }} />
       </Layout>
     </ThemeProvider>
   );
@@ -30,8 +30,8 @@ export async function getStaticProps(context) {
   return {
     props: {
       country: country.data,
-      countryCodes: countryCodes.data
-    }
+      countryCodes: countryCodes.data,
+    },
   };
 }
 
@@ -40,12 +40,12 @@ export async function getStaticPaths() {
   const rawCountryData = await axios.get('https://restcountries.eu/rest/v2/all');
   const countries = rawCountryData.data;
   // each path fetches entries from api using their alpha3Code property
-  const paths = countries.map(country => ({
-    params: { country: country.alpha3Code  }
+  const paths = countries.map((country) => ({
+    params: { country: country.alpha3Code },
   }));
 
   return {
     paths,
     fallback: false,
-  }
+  };
 }

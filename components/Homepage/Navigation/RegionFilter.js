@@ -1,4 +1,5 @@
-// for emotion
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /** @jsxImportSource @emotion/react */
 
 import { useState } from 'react';
@@ -85,32 +86,31 @@ export default function RegionFilter({ changeHandler, selected, dark }) {
       font-size: 1em;
       cursor: pointer;
       font-weight: 600;
-    `
-  }
+    `,
+  };
 
   // to automatically close menu when an option is selected
-  const onToggle = event => {
+  const onToggle = (event) => {
     event.preventDefault();
     setIsOpen(!isOpen);
-  }
+  };
 
   return (
     <details open={isOpen} onClick={onToggle} css={styles.details}>
       <summary>{selected === '' ? 'Filter By Region' : `Filter By Region (${selected})`}</summary>
       <ul>
-        {regions.map(region => 
+        {regions.map((region) => (
           <li key={region}>
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={() => changeHandler(region)}
               css={styles.buttons}
             >
               {region}
             </button>
           </li>
-        )}
+        ))}
       </ul>
     </details>
   );
-
 }

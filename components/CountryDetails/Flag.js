@@ -12,7 +12,7 @@ export default function Flag({ name, flag }) {
 
   return (
     <img
-      css={styles} 
+      css={styles}
       src={flag}
       alt={name}
       loading="lazy"

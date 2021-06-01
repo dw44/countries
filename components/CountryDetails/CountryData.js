@@ -8,7 +8,7 @@ import { numberWithCommas } from '../../utils/utils';
 import { ThemeContext } from '../../context/ThemeContext';
 
 export default function CountryData({ country }) {
-  const {dark} = useContext(ThemeContext);
+  const { dark } = useContext(ThemeContext);
   const styles = {
     container: css`
       width: 100%;
@@ -29,24 +29,72 @@ export default function CountryData({ country }) {
     `,
     neighborButtons: css`
       
-    `
-  }
-  
+    `,
+  };
+
   return (
     <div css={styles.container}>
       <h1>{country.name}</h1>
       <div>
-        <p><b>Native Name:{' '}</b>{country.nativeName}</p>
-        <p><b>Population:{' '}</b>{numberWithCommas(country.population)}</p>
-        <p><b>Region:{' '}</b>{country.region}</p>
-        <p><b>Sub Region:{' '}</b>{country.subregion}</p>
-        <p><b>Capital:{' '}</b>{country.capital}</p>
+        <p>
+          <b>
+            Native Name:
+            {' '}
+          </b>
+          {country.nativeName}
+        </p>
+        <p>
+          <b>
+            Population:
+            {' '}
+          </b>
+          {numberWithCommas(country.population)}
+        </p>
+        <p>
+          <b>
+            Region:
+            {' '}
+          </b>
+          {country.region}
+        </p>
+        <p>
+          <b>
+            Sub Region:
+            {' '}
+          </b>
+          {country.subregion}
+        </p>
+        <p>
+          <b>
+            Capital:
+            {' '}
+          </b>
+          {country.capital}
+        </p>
       </div>
       <div>
-        <p><b>Top Level Domain:{' '}</b>{country.topLevelDomain}</p>
-        <p><b>Currencies:{' '}</b>{country.currencies.map(currency => currency.name).join(', ')}</p>
-        <p><b>Languages:{' '}</b>{country.languages.map(language => language.nativeName).join(', ')}</p>
+        <p>
+          <b>
+            Top Level Domain:
+            {' '}
+          </b>
+          {country.topLevelDomain}
+        </p>
+        <p>
+          <b>
+            Currencies:
+            {' '}
+          </b>
+          {country.currencies.map((currency) => currency.name).join(', ')}
+        </p>
+        <p>
+          <b>
+            Languages:
+            {' '}
+          </b>
+          {country.languages.map((language) => language.nativeName).join(', ')}
+        </p>
       </div>
     </div>
-  )
+  );
 }

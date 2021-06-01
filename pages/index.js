@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { css } from '@emotion/react';
 import { useState } from 'react';
 
-import { ThemeProvider } from '../context/ThemeContext';111
+import { ThemeProvider } from '../context/ThemeContext';
 import Layout from '../components/Boilerplate/Layout';
 import Navigation from '../components/Homepage/Navigation/Navigation';
 import Countries from '../components/Homepage/Countries';
@@ -23,7 +23,7 @@ export default function Home({ countries }) {
     if (value === 'region') {
       setRegionFilter(event.target.value);
     }
-  } 
+  };
 
   const style = css`
     width: 100vw;
@@ -39,7 +39,7 @@ export default function Home({ countries }) {
             <meta name="description" content="Statistics for the world's countries" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <Navigation 
+          <Navigation
             searchQuery={searchQuery}
             regionFilter={regionFilter}
             setRegionFilter={setRegionFilter}
@@ -56,12 +56,11 @@ export default function Home({ countries }) {
   );
 }
 
-
 export async function getStaticProps() {
   const countryData = await axios.get('https://restcountries.eu/rest/v2/all');
   return {
     props: {
-      countries: [...countryData.data]
-    }
+      countries: [...countryData.data],
+    },
   };
 }

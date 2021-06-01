@@ -58,13 +58,13 @@ export default function Header() {
     `;
 
   return (
-    <header css={ styles }>
+    <header css={styles}>
       <div>
         <h1>
           <a href="/">Where in the world?</a>
         </h1>
-        <button type="button" onClick={ toggleTheme }>
-          <FontAwesomeIcon css={{height: '1.5em'}} icon={dark ? faSun : faMoon} />
+        <button type="button" onClick={toggleTheme}>
+          <FontAwesomeIcon css={{ height: '1.5em' }} icon={dark ? faSun : faMoon} />
           {dark ? <span>Day Mode</span> : <span>Dark Mode</span>}
         </button>
       </div>

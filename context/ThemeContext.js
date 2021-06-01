@@ -1,29 +1,30 @@
+/* eslint-disable react/destructuring-assignment */
 import { createContext, useReducer, useEffect } from 'react';
 
 // TODO: Save to localStorage
-const startingTheme = { dark: false }; 
+const startingTheme = { dark: false };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_THEME':
       return {
-        dark: !state.dark
-      }
+        dark: !state.dark,
+      };
     default:
       return state;
   }
-}
+};
 
 export const ThemeContext = createContext(startingTheme);
 
-export const ThemeProvider = props => {
+export const ThemeProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, startingTheme);
 
   const toggleTheme = () => {
     dispatch({
-      type: 'TOGGLE_THEME'
+      type: 'TOGGLE_THEME',
     });
-  }
+  };
 
   // localstorage only accesible on mounted component in next
   // check if store contains preexisting preference for dark mode and load it
@@ -38,16 +39,17 @@ export const ThemeProvider = props => {
   }, []);
 
   // save to localstorage anytime dark mode preference is changed
-  useEffect(() => { 
+  useEffect(() => {
     window.localStorage.setItem('dark', state.dark);
   }, [state.dark]);
 
   return (
     <ThemeContext.Provider value={{
       dark: state.dark,
-      toggleTheme
-    }}>
+      toggleTheme,
+    }}
+    >
       { props.children }
     </ThemeContext.Provider>
   );
-}
+};

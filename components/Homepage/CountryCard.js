@@ -9,9 +9,8 @@ import { numberWithCommas } from '../../utils/utils';
 import { ThemeContext } from '../../context/ThemeContext';
 
 export default function CountryCard({
-  flag, name, population, region, capital, code
+  flag, name, population, region, capital, code,
 }) {
-
   const { dark } = useContext(ThemeContext);
 
   // sizes in px since card size remains constant across screen sizes
@@ -52,26 +51,36 @@ export default function CountryCard({
         font-weight: 600;
       }
     `,
-  }
-  
+  };
+
   return (
-      <Link href={`/${code}`}>
-        <section css={ styles.card }>
-          <div css={{ height: '45%' }}>
-            <img src={ flag } alt={name} loading="lazy"/>
+    <Link href={`/${code}`}>
+      <section css={styles.card}>
+        <div css={{ height: '45%' }}>
+          <img src={flag} alt={name} loading="lazy" />
+        </div>
+        <div css={{
+          height: '55%',
+          padding: '10%',
+        }}
+        >
+          <h2>{ name }</h2>
+          <div css={styles.countryData}>
+            <span>
+              <b>Population:</b>
+              {` ${numberWithCommas(population)}`}
+            </span>
+            <span>
+              <b>Region:</b>
+              {` ${region}`}
+            </span>
+            <span>
+              <b>Capital:</b>
+              {` ${capital || 'N/A'}`}
+            </span>
           </div>
-          <div css={{
-            height: '55%',
-            padding: '10%'
-          }}>
-            <h2>{ name }</h2>
-            <div css={ styles.countryData }>
-              <span><b>Population:</b>{` ${numberWithCommas(population)}`}</span>
-              <span><b>Region:</b>{` ${region}`}</span>
-              <span><b>Capital:</b>{` ${capital ? capital : 'N/A'}`}</span>
-            </div>
-          </div>
-        </section>
-      </Link>
+        </div>
+      </section>
+    </Link>
   );
 }

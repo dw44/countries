@@ -3,8 +3,7 @@
 
 import { css } from '@emotion/react';
 
-import CountryCard from "./CountryCard";
-
+import CountryCard from './CountryCard';
 
 export default function Countries({ countries, regionFilter, searchQuery }) {
   const styles = css`
@@ -23,20 +22,22 @@ export default function Countries({ countries, regionFilter, searchQuery }) {
   `;
 
   // simplified for reusability
-  const mapToCards = countriesToMap => (
+  const mapToCards = (countriesToMap) => (
     <main css={styles}>
-      {countriesToMap.map(country => <CountryCard 
-        key={country.alpha3Code}
-        flag={country.flag}
-        name={country.name}
-        capital={country.capital}
-        population={country.population}
-        region={country.region}
-        code={country.alpha3Code}
-      />)}
+      {countriesToMap.map((country) => (
+        <CountryCard
+          key={country.alpha3Code}
+          flag={country.flag}
+          name={country.name}
+          capital={country.capital}
+          population={country.population}
+          region={country.region}
+          code={country.alpha3Code}
+        />
+      ))}
     </main>
   );
-  
+
   // no search query, no filter
   if (!searchQuery.trim().length && !regionFilter.length) {
     return mapToCards(countries);
@@ -45,14 +46,15 @@ export default function Countries({ countries, regionFilter, searchQuery }) {
   // region filter applied, no search query
   if (!searchQuery.trim().length && regionFilter.length) {
     return mapToCards(
-      countries.filter(country => country.region === regionFilter));
+      countries.filter((country) => country.region === regionFilter),
+    );
   }
 
   // search query verification edited to be case insensitive
   // search query but no region filter
   if (searchQuery.trim().length && !regionFilter.length) {
     return mapToCards(
-      countries.filter(country => country.name.toLowerCase().includes(searchQuery.toLowerCase()))
+      countries.filter((country) => country.name.toLowerCase().includes(searchQuery.toLowerCase())),
     );
   }
 
@@ -61,8 +63,8 @@ export default function Countries({ countries, regionFilter, searchQuery }) {
   if (searchQuery.trim() && regionFilter) {
     return mapToCards(
       countries
-        .filter(country => country.region === regionFilter)
-        .filter(country => country.name.toLowerCase().includes(searchQuery.toLowerCase()))
+        .filter((country) => country.region === regionFilter)
+        .filter((country) => country.name.toLowerCase().includes(searchQuery.toLowerCase())),
     );
   }
 }

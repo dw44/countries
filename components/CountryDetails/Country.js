@@ -53,7 +53,7 @@ export default function Country({ country, codes }) {
         grid-gap: 2em;
         grid-template-columns: 50% 50%;
       }
-    `, 
+    `,
     borderButtonContainer: css`
       width: 100%;
       display: grid;
@@ -84,12 +84,12 @@ export default function Country({ country, codes }) {
     @media only screen and (max-width: 992px) {
       grid-column: span 3;
     }
-    `
-  }
+    `,
+  };
 
   return (
     <section css={styles.section}>
-      <button css={styles.backButton} onClick={router.back}>
+      <button type="button" css={styles.backButton} onClick={router.back}>
         <FontAwesomeIcon icon={faLongArrowAltLeft} />
         Back
       </button>
@@ -99,13 +99,13 @@ export default function Country({ country, codes }) {
           <CountryData country={country} />
           <div css={styles.borderButtonContainer}>
             {country.borders.length ? <p css={styles.label}>Border Countries: </p> : null}
-            {country.borders.map(countryCode => {
-              // long names mess up button layout 
-              const name = codes.find(country => country.alpha3Code === countryCode).name; 
+            {country.borders.map((countryCode) => {
+              // long names mess up button layout
+              const { name } = codes.find((entry) => entry.alpha3Code === countryCode);
               return (
                 <Link key={countryCode} href={`/${countryCode}`}>
-                  <button css={styles.borderButton}>
-                    {name.length <= 12 ? name : `${name.substring(0,10)}...`}
+                  <button type="button" css={styles.borderButton}>
+                    {name.length <= 12 ? name : `${name.substring(0, 10)}...`}
                   </button>
                 </Link>
               );
